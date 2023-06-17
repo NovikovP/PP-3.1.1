@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>hello Users</title>
+  <title>Реестр пользователей</title>
 </head>
 
 <style>
@@ -58,14 +58,30 @@
     color: #444444;
     text-shadow: none;
   }
+
+  .butt {
+    background: #f5ffff;
+    border-collapse: collapse;
+    text-align: left;
+    border-top: 1px solid #777777;
+    border-bottom: 1px solid #777777;
+    box-shadow: inset 0 1px 0 #999999, inset 0 -1px 0 #999999;
+    background: linear-gradient(#9595b6, #5a567f);
+    color: white;
+    padding: 10px 15px;
+    position: relative;
+  }
 </style>
 
 
 <body>
 <div>
-  <h3>Users</h3>
+<!--  <h3>Реестр всех пользователей</h3>-->
   <table class="table_blur">
     <thead>
+    <tr>
+      <th colspan="5" text-align="center">LIST ALL USERS</th>
+    </tr>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Age</th>
@@ -80,13 +96,14 @@
       <td th:text="${allUser.name}"/>
       <td>
         <a th:href="@{/edit?id={id}(id=${allUser.getId()})}" th:text="Обновить">Edit</a>
+        <br>
         <a th:href="@{/delete?id={id}(id=${allUser.getId()})}" th:text="Удалить">Delit</a>
       </td>
     </tr>
     </tbody>
   </table>
   <br>
-  <input type="button" th:value="Добавить" onclick="window.location.href= 'addNewUser'">
+  <input class="butt" type="button" th:value="ADD_USER" onclick="window.location.href= 'addNewUser'">
   <br>
 </div>
 </body>
